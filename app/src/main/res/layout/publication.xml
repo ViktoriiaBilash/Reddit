@@ -14,8 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        
-  
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_avatar"
         android:layout_width="50dp"
@@ -24,8 +23,7 @@
         app:layout_constraintBottom_toTopOf="@id/barrier_vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_avatar"
-        />
+        android:src="@drawable/ic_avatar" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_name"
@@ -61,7 +59,9 @@
         app:layout_constraintStart_toEndOf="@id/barrier_horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:icon="@drawable/ic_baseline_more_vert_24"
-        tools:ignore="ContentDescription" />
+        app:iconGravity="textEnd"
+
+        />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_horizontal"
@@ -75,14 +75,14 @@
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tv_career, img_avatar">
-
+        app:constraint_referenced_ids="img_avatar, button_more">
     </androidx.constraintlayout.widget.Barrier>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,15 +101,78 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
                 />
-    
-   <com.google.android.material.button.MaterialButton
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:id="@+id/button_comment"
-       style="@style/Button.ColorBackground"
-       app:icon="@drawable/ic_baseline_mode_comment_24"
-       android:text="Comment"
-       android:layout_gravity="center"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/layout_vote"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button_comment"
+            app:layout_constraintBottom_toBottomOf="parent"
+       >
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_outline_thumb_up_24"
+                android:layout_weight="1"
+                style="@style/Button.ColorBackground"
+                app:iconGravity="end"
+                android:text=""/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_view_vote"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Vote"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_outline_thumb_down_24"
+                android:layout_weight="1"
+                style="@style/Button.ColorBackground"
+                app:iconGravity="start"
+                android:text=""
+
+                />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_comment"
+            style="@style/Button.ColorBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Comment"
+            app:icon="@drawable/ic_outline_mode_comment_24"
+
+           app:layout_constraintStart_toEndOf="@id/layout_vote"
+            app:layout_constraintEnd_toStartOf="@id/button_share"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_share"
+            style="@style/Button.ColorBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Share"
+            app:icon="@drawable/ic_outline_share_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_comment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
