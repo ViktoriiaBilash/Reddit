@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.vbilash.reddit.model.Publication
 
-class PublicationViewModelFactory (val publicationList: MutableList<Publication>) : ViewModelProvider.Factory {
+class PublicationViewModelFactory (private val publicationList: MutableList<Publication>) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return PublicationViewModel(publicationList) as T
     }

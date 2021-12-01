@@ -5,146 +5,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
     android:layout_marginStart="4dp"
+    android:layout_marginTop="8dp"
     android:layout_marginEnd="4dp"
-    android:orientation="vertical"
-    android:background="@drawable/publication_background">
+    android:background="@drawable/publication_background"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_avatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toTopOf="@id/barrier_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_avatar" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_avatar"
+            app:layout_constraintBottom_toTopOf="@id/barrier_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_name"
+            android:id="@+id/text_view_name"
             style="@style/TextAppearanceDark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:ellipsize="end"
             android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/img_avatar"
+            app:layout_constraintStart_toEndOf="@id/image_avatar"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Name"/>
+            tools:text="Name" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_career"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ellipsize="end"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/tv_name"
-        app:layout_constraintTop_toBottomOf="@id/tv_name"
-        tools:text="Posted X hours ago" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/text_view_name"
+            app:layout_constraintTop_toBottomOf="@id/text_view_name"
+            tools:text="Posted X hours ago" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_more"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        style="@style/Button.ColorBackground"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toTopOf="@id/barrier_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/barrier_horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:icon="@drawable/ic_baseline_more_vert_24"
-        app:iconGravity="textEnd"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_more"
+            style="@style/Button.ColorBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:foregroundGravity="center"
+            app:icon="@drawable/ic_baseline_more_vert_24"
+            app:iconGravity="textEnd"
+            app:layout_constraintBottom_toTopOf="@id/barrier_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier_horizontal"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        />
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="button_more">
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:barrierDirection="start"
-        app:constraint_referenced_ids="button_more"
-        >
+        </androidx.constraintlayout.widget.Barrier>
 
-    </androidx.constraintlayout.widget.Barrier>
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="img_avatar, button_more">
-    </androidx.constraintlayout.widget.Barrier>
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="image_avatar, button_more" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/TextAppearanceDark"
-            android:ellipsize="end"
-            android:textSize="24sp"
-            tools:text="Some text"
-            android:gravity="center"
-            />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_public_text"
+        style="@style/TextAppearanceDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:textSize="24sp"
+        tools:text="Some text"
+        android:layout_weight="1"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:src="@drawable/ic_baseline_photo_size_select_large_24"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-                />
-
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_public_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        tools:src="@drawable/ic_baseline_photo_size_select_large_24" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
+            android:id="@+id/layout_vote"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:id="@+id/layout_vote"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_comment"
             app:layout_constraintBottom_toBottomOf="parent"
-       >
+            app:layout_constraintEnd_toStartOf="@id/button_comment"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            >
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_thumb_up"
+                style="@style/Button.ColorBackground"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:icon="@drawable/ic_outline_thumb_up_24"
                 android:layout_weight="1"
-                style="@style/Button.ColorBackground"
-                app:iconGravity="end"
-                android:text=""/>
+                app:icon="@drawable/ic_outline_thumb_up_24"
+                app:iconGravity="end" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_view_vote"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Vote"
-                android:textSize="14sp"
                 android:layout_weight="1"
                 android:gravity="center"
-                />
+                android:text="Vote"
+                android:textSize="14sp" />
+
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_thumb_down"
+                style="@style/Button.ColorBackground"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:icon="@drawable/ic_outline_thumb_down_24"
                 android:layout_weight="1"
-                style="@style/Button.ColorBackground"
-                app:iconGravity="start"
-                android:text=""
-
-                />
+                app:icon="@drawable/ic_outline_thumb_down_24"
+                app:iconGravity="start" />
 
         </LinearLayout>
 
@@ -154,11 +153,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Comment"
+            app:iconGravity="textStart"
             app:icon="@drawable/ic_outline_mode_comment_24"
-
-           app:layout_constraintStart_toEndOf="@id/layout_vote"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_share"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toEndOf="@id/layout_vote" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_share"
@@ -167,12 +166,11 @@
             android:layout_height="wrap_content"
             android:text="Share"
             app:icon="@drawable/ic_outline_share_24"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/button_comment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:iconGravity="textStart"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

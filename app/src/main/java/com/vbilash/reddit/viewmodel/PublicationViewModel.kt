@@ -6,7 +6,7 @@ import com.vbilash.reddit.model.Publication
 
 class PublicationViewModel(private val publicationList: MutableList<Publication>) : ViewModel() {
 
-    private var publicationListLiveData = MutableLiveData<MutableList<Publication>>()
+    var publicationListLiveData = MutableLiveData<MutableList<Publication>>()
 
     init {
         loadPublicationList()
