@@ -133,7 +133,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Vote"
+                android:text="@string/main_vote_text"
                 android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
@@ -152,20 +152,20 @@
             style="@style/Button.ColorBackground"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Comment"
+            android:text="@string/main_comments_button"
             app:iconGravity="textStart"
             app:icon="@drawable/ic_outline_mode_comment_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_share"
+            app:layout_constraintEnd_toStartOf="@id/button_download"
             app:layout_constraintStart_toEndOf="@id/layout_vote" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_share"
+            android:id="@+id/button_download"
             style="@style/Button.ColorBackground"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Share"
-            app:icon="@drawable/ic_outline_share_24"
+            android:text="@string/main_download_button"
+            app:icon="@drawable/ic_outline_file_download_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/button_comment"

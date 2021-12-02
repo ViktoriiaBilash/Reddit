@@ -1,13 +1,11 @@
 package com.vbilash.reddit
 
 import android.app.Dialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.vbilash.reddit.adapter.PublicationClickListener
 import com.vbilash.reddit.databinding.DialogFragmentImageBinding
 import com.vbilash.reddit.model.Publication
 import com.vbilash.reddit.utils.extensions.loadImageWithGlide
@@ -32,7 +30,6 @@ class ImageDialogFragment(
                 dismiss()
             }
         }
-
         return view
     }
 

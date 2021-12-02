@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ImageDialogFragment">
+    tools:context=".ImageDialogFragment"
+    android:background="@color/white_100">
 
     <ImageView
         android:id="@+id/image_increase_public_image"
@@ -14,5 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_baseline_photo_size_select_large_24" />
+        tools:src="@drawable/ic_baseline_photo_size_select_large_24"
+        android:scaleType="centerCrop"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

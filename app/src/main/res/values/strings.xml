@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Reddit</string>
+    <string name="main_vote_text">Vote</string>
+    <string name="main_comments_button">Comments</string>
+    <string name="main_download_button">Download</string>
 </resources>

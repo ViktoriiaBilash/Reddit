@@ -24,11 +24,18 @@ class PublicationAdapter(
         val holder = PublicationViewHolder(binding)
 
         holder.binding.imagePublicPhoto.setOnClickListener {
-            val position = holder.absoluteAdapterPosition
-            val model = publicationList[position]
-            listener.openImage(model)
+            listener.openImage(matchPublication(holder))
+        }
+
+        holder.binding.buttonDownload.setOnClickListener {
+            listener.downloadImage(matchPublication(holder))
         }
         return holder
+    }
+
+    private fun matchPublication(holder: PublicationViewHolder): Publication {
+        val position = holder.absoluteAdapterPosition
+        return publicationList[position]
     }
 
     override fun onBindViewHolder(holder: PublicationViewHolder, position: Int) {

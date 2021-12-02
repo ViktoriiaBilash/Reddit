@@ -15,15 +15,13 @@
         <item name="android:textColor">?attr/colorPrimary</item>
         <!--The background color appears behind scrollable content-->
         <item name="android:colorBackground">?attr/colorSecondary</item>
-
     </style>
 
     <style name="Button.ColorBackground" parent="Widget.MaterialComponents.Button.TextButton.Icon">
-<item name="android:textAllCaps">false</item>
-    <item name="iconTint">?attr/colorPrimary</item>
-
+        <item name="android:textAllCaps">false</item>
+        <item name="iconTint">?attr/colorPrimary</item>
     </style>
-    
+
     <style name="ViewOnBackground">
         <item name="android:background">?attr/colorPrimaryVariant</item>
     </style>

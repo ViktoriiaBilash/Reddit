@@ -34,12 +34,12 @@
                 android:id="@+id/searchView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 app:iconifiedByDefault="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image_label"
                 app:layout_constraintTop_toTopOf="parent"
-                app:queryHint="Search" />
+                app:queryHint="Search"
+                android:focusable="false" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
