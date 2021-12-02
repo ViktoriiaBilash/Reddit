@@ -1,4 +1,4 @@
-package com.vbilash.reddit
+package com.vbilash.reddit.ui
 
 import android.app.Dialog
 import android.os.Bundle
