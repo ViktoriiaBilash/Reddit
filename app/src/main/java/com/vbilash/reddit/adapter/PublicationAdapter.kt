@@ -2,12 +2,9 @@ package com.vbilash.reddit.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.vbilash.reddit.databinding.PublicationBinding
 import com.vbilash.reddit.model.Publication
-import androidx.recyclerview.widget.DiffUtil
-import com.vbilash.reddit.R
 import com.vbilash.reddit.utils.extensions.loadImageWithGlide
 import com.vbilash.reddit.utils.extensions.loadImageWithGlideCircle
 
@@ -23,12 +20,13 @@ class PublicationAdapter(
         )
         val holder = PublicationViewHolder(binding)
 
-        holder.binding.imagePublicPhoto.setOnClickListener {
-            listener.openImage(matchPublication(holder))
-        }
-
-        holder.binding.buttonDownload.setOnClickListener {
-            listener.downloadImage(matchPublication(holder))
+        with(holder.binding) {
+            imagePublicPhoto.setOnClickListener {
+                listener.openImage(matchPublication(holder))
+            }
+            buttonDownload.setOnClickListener {
+                listener.downloadImage(matchPublication(holder))
+            }
         }
         return holder
     }
@@ -40,24 +38,14 @@ class PublicationAdapter(
 
     override fun onBindViewHolder(holder: PublicationViewHolder, position: Int) {
         val publicationItem = publicationList[position]
+        val comments = publicationItem.commentsNum
 
-        holder.binding.textViewName.text = publicationItem.userName
-        val time = publicationItem.publicationTime.toString()
-        holder.binding.textViewTime.text = "Posted $time hours ago"
-        holder.binding.textViewPublicText.text = publicationItem.text
-        val comments = publicationItem.commentsNum.toString()
-        holder.binding.buttonComment.text = "$comments comments"
-
-        if (publicationItem.image != null) {
-            holder.binding.imagePublicPhoto.loadImageWithGlide(publicationItem.image)
-        } else {
-            holder.binding.imagePublicPhoto.isVisible = false
-        }
-
-        if (publicationItem.icon != null) {
-            holder.binding.imageAvatar.loadImageWithGlideCircle(publicationItem.icon)
-        } else {
-            holder.binding.imageAvatar.setImageResource(R.drawable.ic_avatar)
+        with(holder.binding) {
+            textViewName.text = publicationItem.userName
+            textViewPublicText.text = publicationItem.text
+            buttonComment.text = "$comments comments"
+            imagePublicPhoto.loadImageWithGlide(publicationItem.image)
+            imageAvatar.loadImageWithGlideCircle(publicationItem.icon)
         }
     }
 
@@ -65,35 +53,7 @@ class PublicationAdapter(
         return publicationList.size
     }
 
-    fun updateList(newList: List<Publication>) {
-        val diffCallback = PublicationsDiffCallback(publicationList, newList)
-        val diffResult = DiffUtil.calculateDiff(diffCallback)
-        diffResult.dispatchUpdatesTo(this)
-    }
-
-    class PublicationsDiffCallback(
-        private val oldList: List<Publication>,
-        private val newList: List<Publication>
-    ) : DiffUtil.Callback() {
-        override fun getOldListSize(): Int {
-            return oldList.size
-        }
-
-        override fun getNewListSize(): Int {
-            return newList.size
-        }
-
-        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldList[oldItemPosition].id == newList[newItemPosition].id
-        }
-
-        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldList[oldItemPosition] == newList[newItemPosition]
-        }
-    }
-
     class PublicationViewHolder(
         val binding: PublicationBinding
     ) : RecyclerView.ViewHolder(binding.root)
-
 }

@@ -20,7 +20,7 @@ class ImageDialogFragment(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DialogFragmentImageBinding.inflate(layoutInflater)
         val view = binding.root
 

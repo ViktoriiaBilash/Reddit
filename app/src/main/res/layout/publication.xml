@@ -34,20 +34,10 @@
             android:layout_margin="8dp"
             android:ellipsize="end"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/barrier_vertical"
             app:layout_constraintStart_toEndOf="@id/image_avatar"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Name" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_view_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ellipsize="end"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/text_view_name"
-            app:layout_constraintTop_toBottomOf="@id/text_view_name"
-            tools:text="Posted X hours ago" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_more"
@@ -85,19 +75,21 @@
         style="@style/TextAppearanceDark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:ellipsize="end"
         android:gravity="center"
-        android:textSize="24sp"
-        tools:text="Some text"
-        android:layout_weight="1"/>
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="18sp"
+        tools:text="Some text" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_public_photo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/margin_all_normal"
+        android:layout_marginBottom="@dimen/margin_all_normal"
         android:layout_weight="1"
         tools:src="@drawable/ic_baseline_photo_size_select_large_24" />
 
@@ -111,12 +103,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:paddingStart="@dimen/margin_all_normal"
+            android:paddingEnd="@dimen/margin_all_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_comment"
-            app:layout_constraintStart_toStartOf="parent"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            >
+            app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_thumb_up"
@@ -153,8 +144,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/main_comments_button"
-            app:iconGravity="textStart"
             app:icon="@drawable/ic_outline_mode_comment_24"
+            app:iconGravity="textStart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_download"
             app:layout_constraintStart_toEndOf="@id/layout_vote" />
@@ -166,11 +157,10 @@
             android:layout_height="wrap_content"
             android:text="@string/main_download_button"
             app:icon="@drawable/ic_outline_file_download_24"
+            app:iconGravity="textStart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/button_comment"
-            app:iconGravity="textStart"/>
+            app:layout_constraintStart_toEndOf="@id/button_comment" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,11 +1,10 @@
 package com.vbilash.reddit.model
 
 data class Publication(
-    val id: Int,
+    val id: String,
     val icon : String,
     val userName: String,
-    val publicationTime: Int,
     val text: String,
     val image: String,
-    val commentsNum: Int
+    val commentsNum: String
 )

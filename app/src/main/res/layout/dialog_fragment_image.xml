@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ImageDialogFragment"
-    android:background="@color/white_100">
+    android:background="@color/white_100"
+    tools:context=".ui.ImageDialogFragment">
 
     <ImageView
         android:id="@+id/image_increase_public_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_baseline_photo_size_select_large_24"
-        android:scaleType="centerCrop"/>
+        tools:src="@drawable/ic_baseline_photo_size_select_large_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
