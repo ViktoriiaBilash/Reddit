@@ -9,6 +9,7 @@ class PublicationViewModel(private val publicationList: MutableList<Publication>
     var publicationListLiveData = MutableLiveData<MutableList<Publication>>()
 
     init {
+
         loadPublicationList()
     }
 
