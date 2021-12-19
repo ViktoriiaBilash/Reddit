@@ -10,6 +10,7 @@ class PublicationViewModel(private val publicationList: MutableList<Publication>
 
     init {
 
+
         loadPublicationList()
     }
 
